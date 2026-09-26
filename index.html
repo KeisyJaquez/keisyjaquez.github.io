@@ -85,8 +85,13 @@ svg.signo{display:block}
 .cert .testigo p b{font-weight:400;color:var(--bermellon)}
 
 /* 5 · sección */
-.seccion .eyebrow{position:absolute;top:300px;left:0;color:var(--niebla)}
-.seccion h2{position:absolute;top:350px;left:-6px;font-size:190px;line-height:1;width:1300px}
+.seccion .eyebrow{position:absolute;top:170px;left:0;color:var(--niebla)}
+.seccion h2{position:absolute;top:214px;left:-6px;font-size:168px;line-height:1;width:1300px}
+.seccion .cuna-filete{position:absolute;top:600px;left:0;width:200px}
+.seccion .definicion{position:absolute;top:632px;left:0;width:1220px;display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:baseline}
+.seccion .definicion .etiqueta{margin:0;color:var(--bermellon);font-size:18px}
+.seccion .definicion p{margin:0;font:400 38px/1.34 var(--ser)}
+.seccion .definicion p.etiqueta{font:400 18px/1.3 var(--mono);letter-spacing:.2em}
 .seccion h2 em{font-style:italic;color:var(--bermellon)}
 .seccion .signo{position:absolute;right:0;bottom:130px;width:300px}
 
@@ -341,6 +346,11 @@ svg.signo{display:block}
     <div class="corrida"><span>Un viaje por París</span><span class="folio"></span></div>
     <p class="etiqueta eyebrow" style="margin:0">La ciudad del amor</p>
     <h2>Un viaje al <em>amor propio</em></h2>
+    <div class="cuna-filete"></div>
+    <div class="definicion">
+      <p class="etiqueta">El amor propio</p>
+      <p>Es la aceptación incondicional, el respeto profundo y el cuidado de la propia dignidad y esencia, sin depender de los logros externos o de la opinión de los demás.</p>
+    </div>
     <svg class="signo" viewBox="0 0 120 64" aria-hidden="true"><path fill="#1E3A59" d="M0 0H120V4H0Z"/><path fill="#F07383" d="M30 64 60 16 90 64 75.85 64 60 38.64 44.15 64Z"/></svg>
     <div class="pie"><span>Keisy Jáquez</span><span></span></div>
   </div>
@@ -422,7 +432,7 @@ svg.signo{display:block}
   }
   var SEL='h1,h2,.sub,.eyebrow,.lema,.desc,.cuna-filete,.formacion,.datos>div,.hoja,.testigo,.foto,.logo,'+
     '.heridas li,.rejilla article,.izq>.etiqueta,.hito,.estilo,.der>.etiqueta,.der dl>div,.idea,.vinos article,.orden,.fuente,'+
-    '.cuerpo p,.firma,svg.signo';
+    '.cuerpo p,.firma,.definicion,svg.signo';
   laminas.forEach(function(l,k){
     var n=pad(k+1);
     [].forEach.call(l.querySelectorAll('.folio,.pie span:last-child'),function(e){e.textContent=n});
@@ -430,7 +440,7 @@ svg.signo{display:block}
       e.classList.add('anim');e.style.setProperty('--i',x);
       if(e.classList.contains('cuna-filete')) e.classList.add('trazo');
       if(e.classList.contains('foto')||e.classList.contains('hoja')) e.classList.add('telon');
-      if(e.tagName==='H1'||e.parentNode.classList.contains('seccion')&&e.tagName==='H2'||l.classList.contains('cierre')&&e.tagName==='H2') e.classList.add('grande');
+      if(e.tagName==='H1'||l.classList.contains('seccion')&&e.tagName==='H2'||l.classList.contains('cierre')&&e.tagName==='H2') e.classList.add('grande');
     });
   });
   function ir(n,dir){
