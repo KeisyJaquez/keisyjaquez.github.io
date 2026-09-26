@@ -25,8 +25,8 @@
 }
 html,body{height:100%}
 body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--sans);display:flex;flex-direction:column;overflow:hidden}
-.visor{flex:1;position:relative;min-height:0;padding-inline:16px;padding-block:16px 0}
-.marco{position:absolute;inset:16px 16px 0 16px}
+.visor{flex:1;position:relative;min-height:0;padding-inline:16px;padding-block:16px}
+.marco{position:absolute;inset:16px;cursor:pointer}
 .escenario{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;box-shadow:0 24px 70px rgba(30,58,89,.16)}
 
 /* ---------- láminas ---------- */
@@ -171,15 +171,13 @@ svg.signo{display:block}
 .etiquetas .orden i{margin-left:auto;font:italic 400 23px/1 var(--ser);color:var(--niebla)}
 
 /* ---------- mando ---------- */
-.mando{flex:none;position:relative;display:flex;justify-content:center;align-items:center;gap:14px;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));font-family:var(--mono);color:var(--tinta)}
+.mando{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;font-family:var(--mono);color:var(--tinta)}
 .mando button{appearance:none;border:1px solid rgba(30,58,89,.3);background:transparent;color:var(--tinta);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:none}
 .mando button:hover{border-color:var(--tinta)}
 .mando button:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
 .mando button svg{width:18px;height:18px;fill:currentColor}
-.mando #play{width:56px;height:56px;background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
-.mando #play:hover{background:var(--grafito);border-color:var(--grafito)}
-.mando #play svg{width:22px;height:22px}
-.mando #pantalla{position:absolute;right:16px;top:50%;margin-top:-22px}
+.mando #pantalla{opacity:.35;transition:opacity .2s}
+.mando #pantalla:hover,.mando #pantalla:focus-visible{opacity:1}
 @media (max-width:640px){#pantalla{display:none}}
 
 /* ---------- movimiento ---------- */
@@ -409,9 +407,6 @@ svg.signo{display:block}
 </div></div></div>
 
 <nav class="mando" aria-label="Controles de la presentación">
-  <button id="prev" type="button" aria-label="Lámina anterior"><svg viewBox="0 0 24 24"><path d="M15.5 4 7 12l8.5 8 1.5-1.5L10 12l7-6.5z"/></svg></button>
-  <button id="play" type="button" aria-label="Reproducir"><svg viewBox="0 0 24 24" id="icoPlay"><path d="M7 4v16l13-8z"/></svg></button>
-  <button id="next" type="button" aria-label="Lámina siguiente"><svg viewBox="0 0 24 24"><path d="M8.5 4 17 12l-8.5 8L7 18.5 14 12 7 5.5z"/></svg></button>
   <button id="pantalla" type="button" aria-label="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg></button>
 </nav>
 
@@ -419,9 +414,7 @@ svg.signo{display:block}
 (function(){
   var laminas=[].slice.call(document.querySelectorAll('.lamina'));
   var esc=document.getElementById('escenario'), marco=document.getElementById('marco');
-  var bPlay=document.getElementById('play');
   var DUR=10000, SAL=1000, i=-1, jugando=false, reloj=0, limpia=0, previa=null;
-  var P='<path d="M7 4v16l13-8z"/>', Pa='<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>';
   function pad(n){return (n<10?'0':'')+n}
   function ajustar(){
     var w=marco.clientWidth,h=marco.clientHeight,s=Math.min(w/1920,h/1080);
@@ -466,16 +459,15 @@ svg.signo{display:block}
   }
   function arrancar(){
     jugando=true;
-    bPlay.querySelector('svg').innerHTML=Pa;bPlay.setAttribute('aria-label','Pausar');
     if(i===laminas.length-1) ir(0,1); else programar();
   }
   function parar(){
     jugando=false;clearTimeout(reloj);
-    bPlay.querySelector('svg').innerHTML=P;bPlay.setAttribute('aria-label','Reproducir');
   }
-  bPlay.onclick=function(){jugando?parar():arrancar()};
-  document.getElementById('prev').onclick=function(){ir(i-1,-1)};
-  document.getElementById('next').onclick=function(){ir(i+1,1)};
+  marco.addEventListener('click',function(e){
+    var r=marco.getBoundingClientRect();
+    if(e.clientX-r.left<r.width/3) ir(i-1,-1); else ir(i+1,1);
+  });
   document.getElementById('pantalla').onclick=function(){
     try{
       if(document.fullscreenElement){document.exitFullscreen()}
