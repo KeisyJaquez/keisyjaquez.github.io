@@ -120,13 +120,16 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
 .ejercicio .eyebrow{position:absolute;top:150px;left:0;color:#9A9A9A}
 .ejercicio h2{position:absolute;top:196px;left:-6px;font-size:150px;line-height:1;font-style:italic}
 .ejercicio .cuna-filete{position:absolute;top:390px;left:0;width:200px}
-.ejercicio .castillo{left:-60px;bottom:96px;width:620px;height:241px}
-.ejercicio ol{position:absolute;top:118px;left:700px;right:0;list-style:none;margin:0;padding:0}
-.ejercicio li{display:grid;grid-template-columns:84px 1fr;align-items:baseline;border-top:1px solid rgba(255,255,255,.22);padding:22px 0 24px}
+.ejercicio .remate{position:absolute;top:430px;left:0;width:470px;margin:0;font:italic 400 32px/1.3 var(--ser);color:#E6E6E6}
+.ejercicio .castillo{left:-60px;bottom:96px;width:520px;height:202px}
+.ejercicio ol{position:absolute;top:118px;left:620px;right:0;list-style:none;margin:0;padding:0}
+.ejercicio li{display:grid;grid-template-columns:72px 1fr;column-gap:18px;align-items:baseline;border-top:1px solid rgba(255,255,255,.22);padding:16px 0 18px}
 .ejercicio li:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
 .ejercicio li>span{font:400 22px/1 var(--mono);letter-spacing:.2em;color:var(--rojo-claro)}
-.ejercicio li h3{font-size:42px;line-height:1.1}
-.ejercicio li p{margin:8px 0 0;font:400 24px/1.42 var(--sans);color:#BDBDBD}
+.ejercicio li h3{font-size:34px;line-height:1.15}
+.ejercicio li p{margin:5px 0 0;font:400 21px/1.38 var(--sans);color:#BDBDBD}
+.ejercicio li em{font-family:var(--ser);font-size:25px;color:#fff}
+.ejercicio li small{font:400 17px/1 var(--mono);letter-spacing:.1em;color:#8A8A8A;white-space:nowrap}
 
 /* 9 · cierre */
 .cierre h2{position:absolute;top:150px;left:-6px;font-size:150px;line-height:1;white-space:nowrap}
@@ -318,9 +321,10 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
   <div class="caja">
     <div class="cabecera"></div>
     <div class="corrida"><span>El misterio femenino</span><span class="folio"></span></div>
-    <p class="etiqueta eyebrow" style="margin:0">Ahora te toca a ti</p>
+    <p class="etiqueta eyebrow" style="margin:0">Un momento sólo para ti</p>
     <h2>Ejercicio</h2>
     <div class="cuna-filete"></div>
+    <p class="remate">Tu misterio nace cuando dejas de abandonarte para conseguir amor.</p>
     <svg class="castillo" viewBox="0 0 1080 420" aria-hidden="true"><g fill="none" stroke="#6E6E6E" stroke-width="2" stroke-linejoin="round">
 <path d="M0 250 L120 150 L210 210 L330 90 L450 200 L560 120 L700 230 L820 110 L960 210 L1080 140"/>
 <path d="M0 320 L150 240 L280 300 L420 220 L560 290" opacity=".7"/>
@@ -337,11 +341,12 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
 </g></g><g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".55">
 <path d="M150 345H930M240 367H520M600 367H840M320 389H760M430 411H650"/></g></svg>
     <ol>
-      <li><span>01</span><div><h3>Conecta contigo misma</h3><p>Visualiza tu versión más auténtica, libre de expectativas y presiones.</p></div></li>
-      <li><span>02</span><div><h3>Reconoce tu presente</h3><p>Identifica qué estás haciendo actualmente para sentirte amada.</p></div></li>
-      <li><span>03</span><div><h3>Visualiza tu mejor versión</h3><p>Define la mujer que deseas ser en el amor y cómo quieres relacionarte.</p></div></li>
-      <li><span>04</span><div><h3>Identifica tus barreras</h3><p>Reflexiona sobre los miedos, creencias y patrones que te impiden avanzar.</p></div></li>
-      <li><span>05</span><div><h3>Comprométete contigo misma</h3><p>Elige una acción concreta para honrar tu energía femenina durante los próximos 7 días.</p></div></li>
+      <li><span>01</span><div><h3>Cierra los ojos y respira</h3><p>Nadie tendrá que compartir lo que escriba.</p></div></li>
+      <li><span>02</span><div><h3>La mujer que eres sin demostrar, controlar ni complacer</h3><p>¿Cómo se siente? ¿Cómo entra a una habitación? ¿Cómo recibe amor? ¿Cómo expresa lo que desea? ¿Cómo pone un límite sin culpa?</p></div></li>
+      <li><span>03</span><div><h3>Divide tu hoja · lado izquierdo</h3><p><em>«Para sentirme amada, últimamente estoy…»</em></p></div></li>
+      <li><span>04</span><div><h3>Lado derecho</h3><p><em>«La mujer que quiero ser en el amor…»</em></p></div></li>
+      <li><span>05</span><div><h3>Debajo</h3><p><em>«¿Qué me impide pasar de la mujer que estoy siendo a la mujer que deseo ser?»</em></p></div></li>
+      <li><span>06</span><div><h3>Tu compromiso</h3><p><em>«Durante los próximos siete días, voy a honrar mi energía femenina cuando…»</em></p></div></li>
     </ol>
     <div class="pie"><span>Keisy Jáquez</span><span></span></div>
   </div>
@@ -384,7 +389,7 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
     esc.style.transform='scale('+s+') translate(-50%,-50%)';
   }
   var SEL='h1,h2,.sub,.eyebrow,.edicion,.lema,.desc,.cuna-filete,.formacion,.datos>div,.hoja,.testigo,.foto,'+
-    '.logo,.por,.cargo,.rejilla article,.preguntas li,.ejercicio li,.cuerpo,.firma,svg.castillo';
+    '.logo,.por,.cargo,.remate,.rejilla article,.preguntas li,.ejercicio li,.cuerpo,.firma,svg.castillo';
   laminas.forEach(function(l,k){
     var n=pad(k+1);
     [].forEach.call(l.querySelectorAll('.folio,.pie span:last-child'),function(e){e.textContent=n});
