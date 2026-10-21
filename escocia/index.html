@@ -117,10 +117,16 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
 .preguntas li p em{color:var(--rojo)}
 
 /* 8 · ejercicio */
-.ejercicio .eyebrow{position:absolute;top:300px;left:0;color:#9A9A9A}
-.ejercicio h2{position:absolute;top:340px;left:-8px;font-size:260px;line-height:1;font-style:italic}
-.ejercicio .cuna-filete{position:absolute;top:660px;left:0}
-.ejercicio .castillo{right:-40px;bottom:96px;width:620px;height:241px}
+.ejercicio .eyebrow{position:absolute;top:150px;left:0;color:#9A9A9A}
+.ejercicio h2{position:absolute;top:196px;left:-6px;font-size:150px;line-height:1;font-style:italic}
+.ejercicio .cuna-filete{position:absolute;top:390px;left:0;width:200px}
+.ejercicio .castillo{left:-60px;bottom:96px;width:620px;height:241px}
+.ejercicio ol{position:absolute;top:118px;left:700px;right:0;list-style:none;margin:0;padding:0}
+.ejercicio li{display:grid;grid-template-columns:84px 1fr;align-items:baseline;border-top:1px solid rgba(255,255,255,.22);padding:22px 0 24px}
+.ejercicio li:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+.ejercicio li>span{font:400 22px/1 var(--mono);letter-spacing:.2em;color:var(--rojo-claro)}
+.ejercicio li h3{font-size:42px;line-height:1.1}
+.ejercicio li p{margin:8px 0 0;font:400 24px/1.42 var(--sans);color:#BDBDBD}
 
 /* 9 · cierre */
 .cierre h2{position:absolute;top:150px;left:-6px;font-size:150px;line-height:1;white-space:nowrap}
@@ -330,6 +336,13 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
 <path d="M520 334V296Q535 280 550 296V334"/>
 </g></g><g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".55">
 <path d="M150 345H930M240 367H520M600 367H840M320 389H760M430 411H650"/></g></svg>
+    <ol>
+      <li><span>01</span><div><h3>Conecta contigo misma</h3><p>Visualiza tu versión más auténtica, libre de expectativas y presiones.</p></div></li>
+      <li><span>02</span><div><h3>Reconoce tu presente</h3><p>Identifica qué estás haciendo actualmente para sentirte amada.</p></div></li>
+      <li><span>03</span><div><h3>Visualiza tu mejor versión</h3><p>Define la mujer que deseas ser en el amor y cómo quieres relacionarte.</p></div></li>
+      <li><span>04</span><div><h3>Identifica tus barreras</h3><p>Reflexiona sobre los miedos, creencias y patrones que te impiden avanzar.</p></div></li>
+      <li><span>05</span><div><h3>Comprométete contigo misma</h3><p>Elige una acción concreta para honrar tu energía femenina durante los próximos 7 días.</p></div></li>
+    </ol>
     <div class="pie"><span>Keisy Jáquez</span><span></span></div>
   </div>
 </section>
@@ -371,7 +384,7 @@ h1,h2,h3{font-family:var(--ser);font-weight:400;margin:0;text-wrap:balance;lette
     esc.style.transform='scale('+s+') translate(-50%,-50%)';
   }
   var SEL='h1,h2,.sub,.eyebrow,.edicion,.lema,.desc,.cuna-filete,.formacion,.datos>div,.hoja,.testigo,.foto,'+
-    '.logo,.por,.cargo,.rejilla article,.preguntas li,.cuerpo,.firma,svg.castillo';
+    '.logo,.por,.cargo,.rejilla article,.preguntas li,.ejercicio li,.cuerpo,.firma,svg.castillo';
   laminas.forEach(function(l,k){
     var n=pad(k+1);
     [].forEach.call(l.querySelectorAll('.folio,.pie span:last-child'),function(e){e.textContent=n});
